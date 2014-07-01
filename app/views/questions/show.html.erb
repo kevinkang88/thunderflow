@@ -1,0 +1,28 @@
+<h1><%= @question.title %></h1>
+<p><%= @question.content %></p>
+<%= image_tag(@question.img_url) %>
+<%= div_for(@question) do %>
+  <%= link_to "upvote", votes_path(direction: "up", question: @question.id, type: "question"), method: "POST" %>
+  <%= link_to "downvote", votes_path(direction: "down", question: @question.id, type: "question"), method: "POST" %>
+  <p>Votes: <%= (@question.votes.where(direction: "up").count - @question.votes.where(direction: "down").count) %></p>
+<% end %>
+
+<%= button_to "Delete", { action: "destroy", id: @question.id }, method: :delete %>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit "Answer" %>
+<% end %>
+
+<% @question.answers.each do |answer| %>
+  <h2><%= answer.title %></h2>
+  <p><%= answer.content %></p>
+  <%= div_for(answer) do %>
+    <%= link_to "upvote", votes_path(direction: "up", answer: answer.id, type: "answer"), method: "POST" %>
+    <%= link_to "downvote", votes_path(direction: "down", answer: answer.id, type: "answer"), method: "POST" %>
+    <p>Votes: <%= (answer.votes.where(direction: "up").count - answer.votes.where(direction: "down").count) %></p>
+  <% end %>
+<% end %>

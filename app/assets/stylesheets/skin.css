@@ -1,0 +1,34 @@
+/*A user can see upvote and downvote icons from font-awesome
+A user can see the question index view styled according to this mockup
+A user can see the question show view styled according to this mockup
+A user can see the question edit form view styled according to this mockup*/
+
+body {
+  font-family: Helvetica;
+
+}
+
+.create_question_form {
+  background-color: white;
+
+}
+
+.show_questions {
+  background-color: #00FFFF;
+  border: solid black 2px;
+  border-radius: 15px;
+
+}
+
+.submit {
+ color: #fff;
+ width: 60px;
+ height: 60px;
+ background: red;
+ border-radius: 100%;
+ border: gray solid 1px;
+}
+
+header {
+  background-color: orange;
+}

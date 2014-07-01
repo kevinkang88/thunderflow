@@ -1,0 +1,28 @@
+<header>
+  <h1>Funky Town Questions</h1>
+</header>
+
+<div class="create_question_form">
+  <%= render "form" %>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="show_questions">
+    <h2><%= link_to question.title, question_path(question) %></h2>
+    <p><%= question.content %></p>
+    <%= div_for(question) do %>
+
+      <%= link_to votes_path(direction: "up", question: question.id, type: "question"), method: "POST", remote: true, class: "vote-up", id: "upvote" do %>
+        <i class="fa fa-caret-square-o-up"></i>
+      <% end %>
+
+      <p>Rating:</p>
+      <p><%= (question.votes.where(direction: "up").count - question.votes.where(direction: "down").count) %></p>
+
+      <%= link_to votes_path(direction: "down", question: question.id, type: "question"), method: "POST", remote: true, class: "vote-down", id: "downvote" do %>
+        <i class="fa fa-caret-square-o-down"></i>
+      <% end %>
+
+    <% end %>
+  </div>
+<% end %>
