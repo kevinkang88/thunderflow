@@ -11,6 +11,10 @@ gem 'pry'
 gem "paperclip", "~> 4.1"
 gem 'rubysl-base64'
 
+
+gem "sidekiq", "~> 2.0"
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,6 +32,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails', '=2.14'
   gem 'factory_girl_rails', "~> 4.2.1"
+  gem "letter_opener"
 end
 
 group :test do

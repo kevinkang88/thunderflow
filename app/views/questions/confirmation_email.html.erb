@@ -5,6 +5,11 @@
   </head>
   <body>
     <h1>A Question Has Posted!</h1>
-    <p>Thanks for posting and have a great day!</p>
-  </body>
+    <p>A question has just posted.  Here it is: </p>
+    <ul>
+      <li><%= @question.title %>  </li>
+      <li><%= @question.content %></li>
+    </ul>
+
+    </body>
 </html>
