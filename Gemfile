@@ -8,7 +8,6 @@ gem 'figaro'
 gem 'pg'
 gem 'httparty'
 gem 'pry'
-gem "paperclip", "~> 4.1"
 gem 'rubysl-base64'
 
 # Gems used only for assets and not required

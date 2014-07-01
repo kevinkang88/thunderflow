@@ -47,4 +47,6 @@ production:
   encoding: unicode
   database: dbc_overflow_production
   pool: 5
+  username: aki
+  password:
 
